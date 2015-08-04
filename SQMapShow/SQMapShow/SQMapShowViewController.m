@@ -10,6 +10,7 @@
 #import "SQMapShowViewController.h"
 #import "SQMapAnnotation.h"
 #import "SQMapAnnotationView.h"
+#import "SQMapAnnotationUtil.h"
 
 #import "TestViewController.h"
 
@@ -31,7 +32,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     mapView.delegate = self;
+    [self.view insertSubview:mapView atIndex:0];
     
     [self locationManagerStart];
 }
@@ -86,18 +89,10 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView_ viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    SQMapAnnotationView *mapAnnotationView = (SQMapAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass([SQMapAnnotationView class])];
-    if (mapAnnotationView == nil) {
-        mapAnnotationView = [[SQMapAnnotationView alloc] initWithAnnotationView:annotation];
+    if ([annotation conformsToProtocol:@protocol(SQMapAnnotationUtilProtocol)]) {
+        return [((NSObject<SQMapAnnotationUtilProtocol> *)annotation) annotationViewInMap:mapView];
     }
-    
-    
-    SQMapAnnotation *mapAnnotation = [[SQMapAnnotation alloc] init];
-    mapAnnotation.image = [UIImage imageNamed:@"photo"];
-    
-    [mapAnnotationView updateWithMapAnnotation:mapAnnotation];
-    
-    return mapAnnotationView;
+    return nil;
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
@@ -168,7 +163,8 @@
         SQMapAnnotation *mapAnnotation = [[SQMapAnnotation alloc] init];
         CLLocationCoordinate2D coordinateUser = CLLocationCoordinate2DMake(i * 0.001 + 40.018284, i * 0.002 + 116.345398);
         mapAnnotation.coordinate = coordinateUser;
-        [mutAnnotations addObject:mapAnnotation];
+        mapAnnotation.image = [UIImage imageNamed:@"photo"];
+        [mutAnnotations addObject:[SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation]];
     }
     
     return mutAnnotations;

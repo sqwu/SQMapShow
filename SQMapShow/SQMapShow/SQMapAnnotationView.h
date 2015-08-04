@@ -10,6 +10,8 @@
 
 @class SQMapAnnotation;
 
+extern NSString * const SQAnnotationViewReuseID;
+
 @interface SQMapAnnotationView : MKAnnotationView
 
 /**
