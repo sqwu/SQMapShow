@@ -20,7 +20,7 @@
     CLLocationCoordinate2D coordinate;
 }
 
-@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) MKMapView *mapView;
 
 @end
 
@@ -158,16 +158,25 @@
 
 - (NSArray *)annotations
 {
-    NSMutableArray *mutAnnotations = [NSMutableArray array];
-    for (int i = 0; i < 3; i++) {
-        SQMapAnnotation *mapAnnotation = [[SQMapAnnotation alloc] init];
-        CLLocationCoordinate2D coordinateUser = CLLocationCoordinate2DMake(i * 0.001 + 40.018284, i * 0.002 + 116.345398);
-        mapAnnotation.coordinate = coordinateUser;
-        mapAnnotation.image = [UIImage imageNamed:@"photo"];
-        [mutAnnotations addObject:[SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation]];
-    }
+    SQMapAnnotation *mapAnnotation1 = [[SQMapAnnotation alloc] init];
+    CLLocationCoordinate2D coordinateUser1 = CLLocationCoordinate2DMake(0 * 0.001 + 40.018284, 0 * 0.002 + 116.345398);
+    mapAnnotation1.coordinate = coordinateUser1;
+    mapAnnotation1.image = [UIImage imageNamed:@"photo_0"];
     
-    return mutAnnotations;
+    SQMapAnnotation *mapAnnotation2 = [[SQMapAnnotation alloc] init];
+    CLLocationCoordinate2D coordinateUser2 = CLLocationCoordinate2DMake(1 * 0.001 + 40.018284, 1 * 0.002 + 116.345398);
+    mapAnnotation2.coordinate = coordinateUser2;
+    mapAnnotation2.image = [UIImage imageNamed:@"photo_1"];
+    
+    SQMapAnnotation *mapAnnotation3 = [[SQMapAnnotation alloc] init];
+    CLLocationCoordinate2D coordinateUser3 = CLLocationCoordinate2DMake(2 * 0.001 + 40.018284, 2 * 0.002 + 116.345398);
+    mapAnnotation3.coordinate = coordinateUser3;
+    mapAnnotation3.image = [UIImage imageNamed:@"photo_2"];
+    
+    
+    return @[[SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation1],
+             [SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation2],
+             [SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation3]];
 }
 
 @end
