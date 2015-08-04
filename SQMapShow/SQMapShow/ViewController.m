@@ -71,13 +71,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - helpers
-
-- (void)clean
-{
-    [mapView removeAnnotations:mapView.annotations];
-}
-
 #pragma mark - MKMapViewDelegate
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView_ viewForAnnotation:(id<MKAnnotation>)annotation
@@ -90,9 +83,16 @@
     annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     annotationView.canShowCallout = YES;
     
-    annotationView.image = [UIImage imageNamed:@"photo"];
+    UIImage *resizedImage = ResizeImage([UIImage imageNamed:@"photo"], 25, 25, 2);
+    
+    annotationView.image = [self loadImage:resizedImage userId:nil withRadious:3.5];
     
     return annotationView;
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    
 }
 
 - (void)mapView:(MKMapView *)mapView_ annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
@@ -141,6 +141,59 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     
+}
+
+#pragma mark - helpers
+
+UIImage *ResizeImage(UIImage *image, CGFloat width, CGFloat height, CGFloat scale) {
+    CGSize size = CGSizeMake(width, height);
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    
+    UIGraphicsBeginImageContextWithOptions(size, NO, scale);
+    [image drawInRect:rect];
+    UIImage *resized = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return resized;
+}
+
+- (UIImage *)loadImage:(UIImage *)image userId:(NSString *)userId withRadious:(CGFloat)radious
+{
+    if (image == nil) return nil;
+    
+    CGFloat imageWidth = image.size.width;
+    CGFloat imageHeight = image.size.height;
+    
+    CGRect rect = CGRectMake(0, 0, imageWidth, imageHeight);
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 2.0);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextBeginPath(context);
+    CGContextSaveGState(context);
+    CGContextTranslateCTM (context, CGRectGetMinX(rect), CGRectGetMinY(rect));
+    CGContextScaleCTM (context, radious, radious);
+    
+    CGFloat rectWidth = CGRectGetWidth (rect)/radious;
+    CGFloat rectHeight = CGRectGetHeight (rect)/radious;
+    
+    CGContextMoveToPoint(context, rectWidth, rectHeight/2.0f);
+    CGContextAddArcToPoint(context, rectWidth, rectHeight, rectWidth/2, rectHeight, radious);
+    CGContextAddArcToPoint(context, 0, rectHeight, 0, rectHeight/2, radious);
+    CGContextAddArcToPoint(context, 0, 0, rectWidth/2, 0, radious);
+    CGContextAddArcToPoint(context, rectWidth, 0, rectWidth, rectHeight/2, radious);
+    CGContextRestoreGState(context);
+    CGContextClosePath(context);
+    CGContextClip(context);
+    
+    [image drawInRect:CGRectMake(0, 0, imageWidth, imageHeight)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+- (void)clean
+{
+    [mapView removeAnnotations:mapView.annotations];
 }
 
 @end
