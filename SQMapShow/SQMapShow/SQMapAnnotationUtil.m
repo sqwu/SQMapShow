@@ -45,11 +45,11 @@
     } else {
         self.mapAnnotationView.annotation = self;
     }
-    [self updateThumbnail:self.mapAnnotation animated:NO];
+    [self updateMapAnnotation:self.mapAnnotation animated:NO];
     return self.mapAnnotationView;
 }
 
-- (void)updateThumbnail:(SQMapAnnotation *)mapAnnotation animated:(BOOL)animated {
+- (void)updateMapAnnotation:(SQMapAnnotation *)mapAnnotation animated:(BOOL)animated {
     if (animated) {
         [UIView animateWithDuration:0.33f animations:^{
             _coordinate = mapAnnotation.coordinate;

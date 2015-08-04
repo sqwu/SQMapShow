@@ -162,6 +162,7 @@
     CLLocationCoordinate2D coordinateUser1 = CLLocationCoordinate2DMake(0 * 0.001 + 40.018284, 0 * 0.002 + 116.345398);
     mapAnnotation1.coordinate = coordinateUser1;
     mapAnnotation1.image = [UIImage imageNamed:@"photo_0"];
+    mapAnnotation1.title = @"";
     
     SQMapAnnotation *mapAnnotation2 = [[SQMapAnnotation alloc] init];
     CLLocationCoordinate2D coordinateUser2 = CLLocationCoordinate2DMake(1 * 0.001 + 40.018284, 1 * 0.002 + 116.345398);
