@@ -12,7 +12,14 @@
 
 extern NSString * const SQAnnotationViewReuseID;
 
-@interface SQMapAnnotationView : MKAnnotationView
+@protocol SQMapAnnotationViewProtocol <NSObject>
+
+- (void)didSelectAnnotationViewInMap:(MKMapView *)mapView;
+- (void)didDeselectAnnotationViewInMap:(MKMapView *)mapView;
+
+@end
+
+@interface SQMapAnnotationView : MKAnnotationView <SQMapAnnotationViewProtocol>
 
 /**
  *  初始化AnnotationView

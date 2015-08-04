@@ -26,15 +26,15 @@
 
 @implementation SQMapShowViewController
 
-@synthesize mapView;
+//@synthesize mapView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
-    mapView.delegate = self;
-    [self.view insertSubview:mapView atIndex:0];
+    self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
+    self.mapView.delegate = self;
+    [self.view insertSubview:self.mapView atIndex:0];
     
     [self locationManagerStart];
 }
@@ -49,18 +49,18 @@
     [super viewDidAppear:animated];
     
     
-    [mapView removeAnnotations:mapView.annotations];
+    [self.mapView removeAnnotations:self.mapView.annotations];
     
     // 添加 Annotation
-    [mapView addAnnotations:[self annotations]];
+    [self.mapView addAnnotations:[self annotations]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
-    for (id annotation in mapView.selectedAnnotations) {
-        [mapView deselectAnnotation:annotation animated:NO];
+    for (id annotation in self.mapView.selectedAnnotations) {
+        [self.mapView deselectAnnotation:annotation animated:NO];
     }
 }
 
@@ -87,7 +87,7 @@
 
 #pragma mark - MKMapViewDelegate
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView_ viewForAnnotation:(id<MKAnnotation>)annotation
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     if ([annotation conformsToProtocol:@protocol(SQMapAnnotationUtilProtocol)]) {
         return [((NSObject<SQMapAnnotationUtilProtocol> *)annotation) annotationViewInMap:mapView];
@@ -97,6 +97,10 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
+    if ([view conformsToProtocol:@protocol(SQMapAnnotationViewProtocol)]) {
+        [((NSObject<SQMapAnnotationViewProtocol> *)view) didSelectAnnotationViewInMap:mapView];
+    }
+    
     TestViewController *vc = [[TestViewController alloc] init];
     [self presentViewController:vc animated:YES completion:nil];
 }
@@ -139,7 +143,7 @@
     region.center.longitude = coordinate.longitude;
     region.span.latitudeDelta = 0.01;
     region.span.longitudeDelta = 0.01;
-    [mapView setRegion:region animated:YES];
+    [self.mapView setRegion:region animated:YES];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -151,7 +155,7 @@
 
 - (void)clean
 {
-    [mapView removeAnnotations:mapView.annotations];
+    [self.mapView removeAnnotations:self.mapView.annotations];
 }
 
 #pragma mark - getters
