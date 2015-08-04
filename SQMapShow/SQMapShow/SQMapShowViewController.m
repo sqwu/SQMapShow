@@ -140,10 +140,8 @@
     coordinate = newLocation.coordinate;
     
     MKCoordinateRegion region;
-//    region.center.latitude = coordinate.latitude;
-//    region.center.longitude = coordinate.longitude;
-    region.center.latitude = 37.3;
-    region.center.longitude = -112.03;
+    region.center.latitude = coordinate.latitude;
+    region.center.longitude = coordinate.longitude;
     region.span.latitudeDelta = 0.01;
     region.span.longitudeDelta = 0.01;
     [mapView setRegion:region animated:YES];
@@ -168,7 +166,7 @@
     NSMutableArray *mutAnnotations = [NSMutableArray array];
     for (int i = 0; i < 3; i++) {
         SQMapAnnotation *mapAnnotation = [[SQMapAnnotation alloc] init];
-        CLLocationCoordinate2D coordinateUser = CLLocationCoordinate2DMake(i * 0.001 + 37.3, i * 0.002 + (-112.03));
+        CLLocationCoordinate2D coordinateUser = CLLocationCoordinate2DMake(i * 0.001 + 40.018284, i * 0.002 + 116.345398);
         mapAnnotation.coordinate = coordinateUser;
         [mutAnnotations addObject:mapAnnotation];
     }
