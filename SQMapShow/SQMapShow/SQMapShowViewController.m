@@ -8,6 +8,8 @@
 
 #import <MapKit/MapKit.h>
 #import "SQMapShowViewController.h"
+#import "SQMapAnnotation.h"
+#import "SQMapAnnotationView.h"
 
 #import "TestViewController.h"
 
@@ -46,15 +48,8 @@
     
     [mapView removeAnnotations:mapView.annotations];
     
-    for (int i = 0; i < 3; i++) {
-        CLLocationCoordinate2D coordinateUser = CLLocationCoordinate2DMake(i * 0.001 + 37.3, i * 0.001 + (-112.03));
-        
-        MKPointAnnotation *pointAnnotation = [[MKPointAnnotation alloc] init];
-        pointAnnotation.coordinate = coordinateUser;
-        pointAnnotation.title = @"点我啊";
-        
-        [mapView addAnnotation:pointAnnotation];
-    }
+    // 添加 Annotation
+    [mapView addAnnotations:[self annotations]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -91,33 +86,33 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView_ viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    MKAnnotationView *annotationView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"pin"];
-    if (annotationView == nil) {
-        annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
+    SQMapAnnotationView *mapAnnotationView = (SQMapAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass([SQMapAnnotationView class])];
+    if (mapAnnotationView == nil) {
+        mapAnnotationView = [[SQMapAnnotationView alloc] initWithAnnotationView:annotation];
     }
     
-    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    annotationView.canShowCallout = YES;
     
-    UIImage *resizedImage = ResizeImage([UIImage imageNamed:@"photo"], 25, 25, 2);
+    SQMapAnnotation *mapAnnotation = [[SQMapAnnotation alloc] init];
+    mapAnnotation.image = [UIImage imageNamed:@"photo"];
     
-    annotationView.image = [self loadImage:resizedImage userId:nil withRadious:3.5];
+    [mapAnnotationView updateWithMapAnnotation:mapAnnotation];
     
-    return annotationView;
+    return mapAnnotationView;
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    
-}
-
-- (void)mapView:(MKMapView *)mapView_ annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
-{
     TestViewController *vc = [[TestViewController alloc] init];
     [self presentViewController:vc animated:YES completion:nil];
-    
-    [mapView deselectAnnotation:view.annotation animated:YES];
 }
+
+//- (void)mapView:(MKMapView *)mapView_ annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+//{
+//    TestViewController *vc = [[TestViewController alloc] init];
+//    [self presentViewController:vc animated:YES completion:nil];
+//    
+//    [mapView deselectAnnotation:view.annotation animated:YES];
+//}
 
 #pragma mark - Location manager methods
 
@@ -161,55 +156,24 @@
 
 #pragma mark - helpers
 
-UIImage *ResizeImage(UIImage *image, CGFloat width, CGFloat height, CGFloat scale) {
-    CGSize size = CGSizeMake(width, height);
-    CGRect rect = CGRectMake(0, 0, size.width, size.height);
-    
-    UIGraphicsBeginImageContextWithOptions(size, NO, scale);
-    [image drawInRect:rect];
-    UIImage *resized = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return resized;
-}
-
-- (UIImage *)loadImage:(UIImage *)image userId:(NSString *)userId withRadious:(CGFloat)radious
-{
-    if (image == nil) return nil;
-    
-    CGFloat imageWidth = image.size.width;
-    CGFloat imageHeight = image.size.height;
-    
-    CGRect rect = CGRectMake(0, 0, imageWidth, imageHeight);
-    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 2.0);
-    
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextBeginPath(context);
-    CGContextSaveGState(context);
-    CGContextTranslateCTM (context, CGRectGetMinX(rect), CGRectGetMinY(rect));
-    CGContextScaleCTM (context, radious, radious);
-    
-    CGFloat rectWidth = CGRectGetWidth (rect)/radious;
-    CGFloat rectHeight = CGRectGetHeight (rect)/radious;
-    
-    CGContextMoveToPoint(context, rectWidth, rectHeight/2.0f);
-    CGContextAddArcToPoint(context, rectWidth, rectHeight, rectWidth/2, rectHeight, radious);
-    CGContextAddArcToPoint(context, 0, rectHeight, 0, rectHeight/2, radious);
-    CGContextAddArcToPoint(context, 0, 0, rectWidth/2, 0, radious);
-    CGContextAddArcToPoint(context, rectWidth, 0, rectWidth, rectHeight/2, radious);
-    CGContextRestoreGState(context);
-    CGContextClosePath(context);
-    CGContextClip(context);
-    
-    [image drawInRect:CGRectMake(0, 0, imageWidth, imageHeight)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newImage;
-}
-
 - (void)clean
 {
     [mapView removeAnnotations:mapView.annotations];
+}
+
+#pragma mark - getters
+
+- (NSArray *)annotations
+{
+    NSMutableArray *mutAnnotations = [NSMutableArray array];
+    for (int i = 0; i < 3; i++) {
+        SQMapAnnotation *mapAnnotation = [[SQMapAnnotation alloc] init];
+        CLLocationCoordinate2D coordinateUser = CLLocationCoordinate2DMake(i * 0.001 + 37.3, i * 0.002 + (-112.03));
+        mapAnnotation.coordinate = coordinateUser;
+        [mutAnnotations addObject:mapAnnotation];
+    }
+    
+    return mutAnnotations;
 }
 
 @end
