@@ -7,11 +7,11 @@
 //
 
 #import <MapKit/MapKit.h>
-#import "ViewController.h"
+#import "SQMapShowViewController.h"
 
 #import "TestViewController.h"
 
-@interface ViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
+@interface SQMapShowViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 {
     CLLocationManager *locationManager;
     CLLocationCoordinate2D coordinate;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation ViewController
+@implementation SQMapShowViewController
 
 @synthesize mapView;
 
@@ -47,7 +47,7 @@
     [mapView removeAnnotations:mapView.annotations];
     
     for (int i = 0; i < 3; i++) {
-        CLLocationCoordinate2D coordinateUser = CLLocationCoordinate2DMake(i * 10 + 37.3, i * 10 + (-112.03));
+        CLLocationCoordinate2D coordinateUser = CLLocationCoordinate2DMake(i * 0.001 + 37.3, i * 0.001 + (-112.03));
         
         MKPointAnnotation *pointAnnotation = [[MKPointAnnotation alloc] init];
         pointAnnotation.coordinate = coordinateUser;
@@ -69,6 +69,22 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Actions
+
+- (IBAction)leftMenuAction:(id)sender {
+    TestViewController *vc = [[TestViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)rightMenuAction:(id)sender {
+    TestViewController *vc = [[TestViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)positionAction:(id)sender {
+    
 }
 
 #pragma mark - MKMapViewDelegate

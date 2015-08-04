@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map Show View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="SQMapShowViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -19,14 +19,65 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="54j-Xe-23h">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdy-X3-Oee">
+                                <rect key="frame" x="554" y="550" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="3O9-hV-eOA"/>
+                                    <constraint firstAttribute="height" constant="30" id="fqL-Rq-Ugo"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="position">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="positionAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Kg5-y5-e48"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6OJ-dK-vpW">
+                                <rect key="frame" x="544" y="28" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="4Tz-yg-dOQ"/>
+                                    <constraint firstAttribute="height" constant="40" id="yFI-Qz-uua"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="fine_print">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rightMenuAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fId-QF-oiY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeP-sC-eZG">
+                                <rect key="frame" x="16" y="28" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="QDs-J6-WYK"/>
+                                    <constraint firstAttribute="width" constant="40" id="bOp-Ev-eiE"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="list">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="leftMenuAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kCO-P5-xnD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="54j-Xe-23h" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="0Z7-0x-nQv"/>
                             <constraint firstItem="54j-Xe-23h" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="7bG-d5-s5X"/>
+                            <constraint firstAttribute="trailing" secondItem="6OJ-dK-vpW" secondAttribute="trailing" constant="16" id="ECL-cr-f52"/>
+                            <constraint firstItem="jeP-sC-eZG" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="Gc6-t8-kzU"/>
+                            <constraint firstAttribute="trailing" secondItem="fdy-X3-Oee" secondAttribute="trailing" constant="16" id="H4K-lo-yvU"/>
+                            <constraint firstItem="6OJ-dK-vpW" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="SaG-ZQ-r65"/>
+                            <constraint firstItem="jeP-sC-eZG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="U7y-fL-5Z4"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="fdy-X3-Oee" secondAttribute="bottom" constant="20" id="bBW-od-NyX"/>
                             <constraint firstAttribute="trailing" secondItem="54j-Xe-23h" secondAttribute="trailing" id="mbo-KB-n8e"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="54j-Xe-23h" secondAttribute="bottom" id="oQf-kM-q1D"/>
+                            <constraint firstItem="jeP-sC-eZG" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="xAT-kw-BuW"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="xAT-kw-BuW"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="54j-Xe-23h" id="8aS-dc-sjc"/>
@@ -36,4 +87,9 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="fine_print" width="50" height="50"/>
+        <image name="list" width="50" height="50"/>
+        <image name="position" width="57" height="57"/>
+    </resources>
 </document>

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		422D627C1B705BB300EB77A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D627B1B705BB300EB77A6 /* main.m */; };
 		422D627F1B705BB300EB77A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D627E1B705BB300EB77A6 /* AppDelegate.m */; };
-		422D62821B705BB300EB77A6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D62811B705BB300EB77A6 /* ViewController.m */; };
+		422D62821B705BB300EB77A6 /* SQMapShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D62811B705BB300EB77A6 /* SQMapShowViewController.m */; };
 		422D62851B705BB300EB77A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422D62831B705BB300EB77A6 /* Main.storyboard */; };
 		422D62871B705BB300EB77A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 422D62861B705BB300EB77A6 /* Images.xcassets */; };
 		422D628A1B705BB300EB77A6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 422D62881B705BB300EB77A6 /* LaunchScreen.xib */; };
@@ -35,8 +35,8 @@
 		422D627B1B705BB300EB77A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		422D627D1B705BB300EB77A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		422D627E1B705BB300EB77A6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		422D62801B705BB300EB77A6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		422D62811B705BB300EB77A6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		422D62801B705BB300EB77A6 /* SQMapShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQMapShowViewController.h; sourceTree = "<group>"; };
+		422D62811B705BB300EB77A6 /* SQMapShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQMapShowViewController.m; sourceTree = "<group>"; };
 		422D62841B705BB300EB77A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		422D62861B705BB300EB77A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		422D62891B705BB300EB77A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -92,8 +92,8 @@
 			children = (
 				422D627D1B705BB300EB77A6 /* AppDelegate.h */,
 				422D627E1B705BB300EB77A6 /* AppDelegate.m */,
-				422D62801B705BB300EB77A6 /* ViewController.h */,
-				422D62811B705BB300EB77A6 /* ViewController.m */,
+				422D62801B705BB300EB77A6 /* SQMapShowViewController.h */,
+				422D62811B705BB300EB77A6 /* SQMapShowViewController.m */,
 				422D62A21B706CFA00EB77A6 /* TestViewController.h */,
 				422D62A31B706CFA00EB77A6 /* TestViewController.m */,
 				422D62A51B706FBE00EB77A6 /* TestViewController.xib */,
@@ -241,7 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				422D62821B705BB300EB77A6 /* ViewController.m in Sources */,
+				422D62821B705BB300EB77A6 /* SQMapShowViewController.m in Sources */,
 				422D627F1B705BB300EB77A6 /* AppDelegate.m in Sources */,
 				422D62A41B706CFA00EB77A6 /* TestViewController.m in Sources */,
 				422D627C1B705BB300EB77A6 /* main.m in Sources */,
@@ -371,7 +371,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SQMapShow/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -382,7 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SQMapShow/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
