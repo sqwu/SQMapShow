@@ -46,7 +46,7 @@ static CGFloat const SQAnnotationViewMargin = 15.0f;
     [self addSubview:self.backgroundImageView];
     
     self.userImageView = [[UIImageView alloc] init];
-    self.userImageView.frame = CGRectMake(SQAnnotationViewMargin, SQAnnotationViewMargin, CGRectGetWidth(self.bounds) - 2 * SQAnnotationViewMargin, CGRectGetWidth(self.bounds) - 2 * SQAnnotationViewMargin);
+    self.userImageView.frame = CGRectMake(SQAnnotationViewMargin, SQAnnotationViewMargin + 2, CGRectGetWidth(self.bounds) - 2 * SQAnnotationViewMargin, CGRectGetWidth(self.bounds) - 2 * SQAnnotationViewMargin);
     self.userImageView.layer.cornerRadius = (CGRectGetWidth(self.bounds) - 2 * SQAnnotationViewMargin) / 2;
     self.userImageView.clipsToBounds = YES;
     [self addSubview:self.userImageView];
