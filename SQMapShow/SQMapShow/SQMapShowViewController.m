@@ -106,6 +106,16 @@
     mapAnnotation.user = nil;
     
     [self.mapView addAnnotations:@[[SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation]]];
+    
+//    MKCoordinateRegion region;
+//    region.center.latitude = coordinateUser.latitude;
+//    region.center.longitude = coordinateUser.longitude;
+//    region.span.latitudeDelta = 0.8;
+//    region.span.longitudeDelta = 0.8;
+    
+    MKCoordinateRegion region = [self fillRegionWithAnnotations:self.mapView.annotations centerCoordinate:coordinate];
+    
+    [self.mapView setRegion:region animated:YES];
 }
 
 - (IBAction)addMoreUsersAction:(id)sender {
@@ -125,6 +135,10 @@
     
     [self.mapView addAnnotations:@[[SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation1],
                                    [SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation2]]];
+    
+    MKCoordinateRegion region = [self fillRegionWithAnnotations:self.mapView.annotations centerCoordinate:coordinate];
+    
+    [self.mapView setRegion:region animated:YES];
 }
 
 - (IBAction)logoutOneUserAction:(id)sender {
@@ -213,6 +227,50 @@
 - (void)clean
 {
     [self.mapView removeAnnotations:self.mapView.annotations];
+}
+
+- (MKCoordinateRegion)fillRegionWithAnnotations:(NSArray *)annotations centerCoordinate:(CLLocationCoordinate2D)coord
+{
+#define MAP_PADDING 1.1
+    // we'll make sure that our minimum vertical span is about a kilometer
+    // there are ~111km to a degree of latitude. regionThatFits will take care of
+    // longitude, which is more complicated, anyway.
+#define MINIMUM_VISIBLE_LATITUDE 0.001
+    CLLocationDegrees minLatitude = DBL_MAX;
+    CLLocationDegrees maxLatitude = -DBL_MAX;
+    CLLocationDegrees minLongitude = DBL_MAX;
+    CLLocationDegrees maxLongitude = -DBL_MAX;
+    
+    for (id<MKAnnotation> annotation in annotations) {
+        coord = annotation.coordinate;
+        if (minLatitude > coord.latitude)
+            minLatitude = coord.latitude;
+        if (maxLatitude < coord.latitude)
+            maxLatitude = coord.latitude;
+        if (minLongitude > coord.longitude)
+            minLongitude = coord.longitude;
+        if (maxLongitude < coord.longitude)
+            maxLongitude = coord.longitude;
+    }
+    
+    if ((coord.latitude - minLatitude) > (maxLatitude - coord.latitude))
+        maxLatitude = coord.latitude + coord.latitude - minLatitude;
+    else
+        minLatitude = coord.latitude - (maxLatitude - coord.latitude);
+    if ((coord.longitude - minLongitude) > (maxLongitude - coord.longitude))
+        maxLongitude = coord.longitude + coord.longitude - minLongitude;
+    else
+        minLongitude = coord.longitude - (maxLongitude - coord.longitude);
+    
+    MKCoordinateRegion region;
+    region.center.latitude = (minLatitude + maxLatitude) / 2;
+    region.center.longitude = (minLongitude + maxLongitude) / 2;
+    
+    region.span.latitudeDelta = (maxLatitude - minLatitude) * MAP_PADDING;
+    
+    region.span.latitudeDelta = (region.span.latitudeDelta < MINIMUM_VISIBLE_LATITUDE) ? MINIMUM_VISIBLE_LATITUDE : region.span.latitudeDelta;
+    region.span.longitudeDelta = (maxLongitude - minLongitude) * MAP_PADDING;
+    return region;
 }
 
 #pragma mark - getters
