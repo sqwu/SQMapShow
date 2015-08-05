@@ -101,6 +101,9 @@
         [((NSObject<SQMapAnnotationViewProtocol> *)view) didSelectAnnotationViewInMap:mapView];
     }
     
+    SQMapAnnotationView *mapAnnotationView = (SQMapAnnotationView *)view;
+    
+    
     TestViewController *vc = [[TestViewController alloc] init];
     [self presentViewController:vc animated:YES completion:nil];
 }
@@ -166,17 +169,22 @@
     CLLocationCoordinate2D coordinateUser1 = CLLocationCoordinate2DMake(0 * 0.001 + 40.018284, 0 * 0.002 + 116.345398);
     mapAnnotation1.coordinate = coordinateUser1;
     mapAnnotation1.image = [UIImage imageNamed:@"photo_0"];
-    mapAnnotation1.title = @"";
+    mapAnnotation1.title = @"d";
+    mapAnnotation1.userId = @"1";
     
     SQMapAnnotation *mapAnnotation2 = [[SQMapAnnotation alloc] init];
     CLLocationCoordinate2D coordinateUser2 = CLLocationCoordinate2DMake(1 * 0.001 + 40.018284, 1 * 0.002 + 116.345398);
     mapAnnotation2.coordinate = coordinateUser2;
     mapAnnotation2.image = [UIImage imageNamed:@"photo_1"];
+    mapAnnotation1.title = @"dd";
+    mapAnnotation1.userId = @"2";
     
     SQMapAnnotation *mapAnnotation3 = [[SQMapAnnotation alloc] init];
     CLLocationCoordinate2D coordinateUser3 = CLLocationCoordinate2DMake(2 * 0.001 + 40.018284, 2 * 0.002 + 116.345398);
     mapAnnotation3.coordinate = coordinateUser3;
     mapAnnotation3.image = [UIImage imageNamed:@"photo_2"];
+    mapAnnotation1.title = @"ddf";
+    mapAnnotation1.userId = @"3";
     
     
     return @[[SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation1],
