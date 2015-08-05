@@ -55,16 +55,70 @@
                                     <action selector="leftMenuAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kCO-P5-xnD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6KS-1B-jBZ">
+                                <rect key="frame" x="20" y="214" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Nyp-p6-0rH"/>
+                                    <constraint firstAttribute="width" constant="100" id="UFh-Vj-bGm"/>
+                                </constraints>
+                                <state key="normal" title="添加单个用户">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addOneUserAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="QiJ-Ih-W7m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHO-UO-Ag6">
+                                <rect key="frame" x="20" y="252" width="100" height="30"/>
+                                <state key="normal" title="添加多个用户">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addMoreUsersAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oWc-W0-hM1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYQ-Q2-Ssw">
+                                <rect key="frame" x="20" y="290" width="100" height="30"/>
+                                <state key="normal" title="退出一个用户">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutOneUserAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XIL-ou-Nbc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MsD-1j-h0i">
+                                <rect key="frame" x="20" y="328" width="100" height="30"/>
+                                <state key="normal" title="退出所有用户">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutAllUsersAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3v5-lI-2B0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6KS-1B-jBZ" firstAttribute="leading" secondItem="SHO-UO-Ag6" secondAttribute="leading" id="4jY-Jo-oZ0"/>
+                            <constraint firstItem="IYQ-Q2-Ssw" firstAttribute="width" secondItem="MsD-1j-h0i" secondAttribute="width" id="91D-Nl-Y4j"/>
+                            <constraint firstItem="6KS-1B-jBZ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="Cze-oC-244"/>
                             <constraint firstAttribute="trailing" secondItem="6OJ-dK-vpW" secondAttribute="trailing" constant="16" id="ECL-cr-f52"/>
                             <constraint firstItem="jeP-sC-eZG" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="Gc6-t8-kzU"/>
                             <constraint firstAttribute="trailing" secondItem="fdy-X3-Oee" secondAttribute="trailing" constant="16" id="H4K-lo-yvU"/>
+                            <constraint firstItem="IYQ-Q2-Ssw" firstAttribute="top" secondItem="SHO-UO-Ag6" secondAttribute="bottom" constant="8" id="IwZ-5X-j1R"/>
+                            <constraint firstItem="IYQ-Q2-Ssw" firstAttribute="leading" secondItem="MsD-1j-h0i" secondAttribute="leading" id="Khh-jN-qKN"/>
+                            <constraint firstItem="6KS-1B-jBZ" firstAttribute="top" secondItem="jeP-sC-eZG" secondAttribute="bottom" constant="146" id="R5Y-mw-JW1"/>
+                            <constraint firstItem="MsD-1j-h0i" firstAttribute="top" secondItem="IYQ-Q2-Ssw" secondAttribute="bottom" constant="8" id="RKO-rX-ypv"/>
                             <constraint firstItem="6OJ-dK-vpW" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="SaG-ZQ-r65"/>
                             <constraint firstItem="jeP-sC-eZG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="U7y-fL-5Z4"/>
+                            <constraint firstItem="IYQ-Q2-Ssw" firstAttribute="width" secondItem="SHO-UO-Ag6" secondAttribute="width" id="ZFD-cc-JP5"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="fdy-X3-Oee" secondAttribute="bottom" constant="20" id="bBW-od-NyX"/>
+                            <constraint firstItem="6KS-1B-jBZ" firstAttribute="width" secondItem="SHO-UO-Ag6" secondAttribute="width" id="gpm-t0-MaT"/>
+                            <constraint firstItem="SHO-UO-Ag6" firstAttribute="top" secondItem="6KS-1B-jBZ" secondAttribute="bottom" constant="8" id="igc-dt-QmA"/>
+                            <constraint firstItem="IYQ-Q2-Ssw" firstAttribute="leading" secondItem="SHO-UO-Ag6" secondAttribute="leading" id="mjP-R9-U0L"/>
+                            <constraint firstItem="IYQ-Q2-Ssw" firstAttribute="height" secondItem="SHO-UO-Ag6" secondAttribute="height" id="nhS-EA-xev"/>
+                            <constraint firstItem="IYQ-Q2-Ssw" firstAttribute="height" secondItem="MsD-1j-h0i" secondAttribute="height" id="tZT-tP-eem"/>
                             <constraint firstItem="jeP-sC-eZG" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="xAT-kw-BuW"/>
+                            <constraint firstItem="6KS-1B-jBZ" firstAttribute="height" secondItem="SHO-UO-Ag6" secondAttribute="height" id="z7F-Jh-opD"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

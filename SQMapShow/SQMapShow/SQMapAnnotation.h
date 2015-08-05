@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class SQUser;
 @import MapKit;
 
 @interface SQMapAnnotation : NSObject
@@ -19,6 +20,6 @@
 /**
  *  接收外部传递参数
  */
-@property (copy, nonatomic) NSString *userId;
+@property (strong, nonatomic) SQUser *user;
 
 @end

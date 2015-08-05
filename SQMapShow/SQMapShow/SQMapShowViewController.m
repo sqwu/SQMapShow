@@ -22,6 +22,7 @@
 
 @property (strong, nonatomic) MKMapView *mapView;
 
+
 @end
 
 @implementation SQMapShowViewController
@@ -33,7 +34,10 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
+    self.mapView.zoomEnabled = YES;
     self.mapView.showsUserLocation = YES;
+    self.mapView.showsBuildings = YES;
+    self.mapView.rotateEnabled = YES;
     self.mapView.delegate = self;
     [self.view insertSubview:self.mapView atIndex:0];
     
@@ -82,6 +86,7 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+// 定位
 - (IBAction)positionAction:(id)sender {
     MKCoordinateRegion region;
     region.center.latitude = coordinate.latitude;
@@ -89,6 +94,30 @@
     region.span.latitudeDelta = 0.01;
     region.span.longitudeDelta = 0.01;
     [self.mapView setRegion:region animated:YES];
+}
+
+// ===========  TEST ===========
+- (IBAction)addOneUserAction:(id)sender {
+    SQMapAnnotation *mapAnnotation = [[SQMapAnnotation alloc] init];
+    CLLocationCoordinate2D coordinateUser = CLLocationCoordinate2DMake(0 * 0.01 + 40.018284, 0 * 0.001 + 116.345398);
+    mapAnnotation.coordinate = coordinateUser;
+    mapAnnotation.image = [UIImage imageNamed:@"imgAdd_1"];
+    mapAnnotation.title = @"user1";
+    mapAnnotation.user = nil;
+    
+    [self.mapView addAnnotations:@[[SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation]]];
+}
+
+- (IBAction)addMoreUsersAction:(id)sender {
+    
+}
+
+- (IBAction)logoutOneUserAction:(id)sender {
+    
+}
+
+- (IBAction)logoutAllUsersAction:(id)sender {
+    [self.mapView removeAnnotations:self.mapView.annotations];
 }
 
 #pragma mark - MKMapViewDelegate
@@ -178,22 +207,22 @@
     CLLocationCoordinate2D coordinateUser1 = CLLocationCoordinate2DMake(0 * 0.001 + 40.018284, 0 * 0.002 + 116.345398);
     mapAnnotation1.coordinate = coordinateUser1;
     mapAnnotation1.image = [UIImage imageNamed:@"photo_0"];
-    mapAnnotation1.title = @"d";
-    mapAnnotation1.userId = @"1";
+    mapAnnotation1.title = @"user1";
+    mapAnnotation1.user = nil;
     
     SQMapAnnotation *mapAnnotation2 = [[SQMapAnnotation alloc] init];
     CLLocationCoordinate2D coordinateUser2 = CLLocationCoordinate2DMake(1 * 0.001 + 40.018284, 1 * 0.002 + 116.345398);
     mapAnnotation2.coordinate = coordinateUser2;
     mapAnnotation2.image = [UIImage imageNamed:@"photo_1"];
-    mapAnnotation1.title = @"dd";
-    mapAnnotation1.userId = @"2";
+    mapAnnotation1.title = @"user2";
+    mapAnnotation1.user = nil;
     
     SQMapAnnotation *mapAnnotation3 = [[SQMapAnnotation alloc] init];
     CLLocationCoordinate2D coordinateUser3 = CLLocationCoordinate2DMake(2 * 0.001 + 40.018284, 2 * 0.002 + 116.345398);
     mapAnnotation3.coordinate = coordinateUser3;
     mapAnnotation3.image = [UIImage imageNamed:@"photo_2"];
-    mapAnnotation1.title = @"ddf";
-    mapAnnotation1.userId = @"3";
+    mapAnnotation1.title = @"user3";
+    mapAnnotation1.user = nil;
     
     
     return @[[SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation1],

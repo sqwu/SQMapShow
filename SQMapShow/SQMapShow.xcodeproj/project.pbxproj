@@ -20,6 +20,7 @@
 		422D62B41B70A08A00EB77A6 /* SQMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D62B31B70A08A00EB77A6 /* SQMapAnnotation.m */; };
 		422D62B71B70A09D00EB77A6 /* SQMapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D62B61B70A09D00EB77A6 /* SQMapAnnotationView.m */; };
 		422D62C01B70C66E00EB77A6 /* SQMapAnnotationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D62BF1B70C66E00EB77A6 /* SQMapAnnotationUtil.m */; };
+		42BD5C8B1B71ED9800EF6FF6 /* SQUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BD5C8A1B71ED9800EF6FF6 /* SQUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		422D62B61B70A09D00EB77A6 /* SQMapAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQMapAnnotationView.m; sourceTree = "<group>"; };
 		422D62BE1B70C66E00EB77A6 /* SQMapAnnotationUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQMapAnnotationUtil.h; sourceTree = "<group>"; };
 		422D62BF1B70C66E00EB77A6 /* SQMapAnnotationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQMapAnnotationUtil.m; sourceTree = "<group>"; };
+		42BD5C891B71ED9800EF6FF6 /* SQUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQUser.h; sourceTree = "<group>"; };
+		42BD5C8A1B71ED9800EF6FF6 /* SQUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 				422D627E1B705BB300EB77A6 /* AppDelegate.m */,
 				422D62801B705BB300EB77A6 /* SQMapShowViewController.h */,
 				422D62811B705BB300EB77A6 /* SQMapShowViewController.m */,
+				42BD5C891B71ED9800EF6FF6 /* SQUser.h */,
+				42BD5C8A1B71ED9800EF6FF6 /* SQUser.m */,
 				422D62A21B706CFA00EB77A6 /* TestViewController.h */,
 				422D62A31B706CFA00EB77A6 /* TestViewController.m */,
 				422D62A51B706FBE00EB77A6 /* TestViewController.xib */,
@@ -262,6 +267,7 @@
 				422D627F1B705BB300EB77A6 /* AppDelegate.m in Sources */,
 				422D62A41B706CFA00EB77A6 /* TestViewController.m in Sources */,
 				422D627C1B705BB300EB77A6 /* main.m in Sources */,
+				42BD5C8B1B71ED9800EF6FF6 /* SQUser.m in Sources */,
 				422D62B41B70A08A00EB77A6 /* SQMapAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
