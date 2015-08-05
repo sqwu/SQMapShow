@@ -64,9 +64,9 @@
 {
     [super viewWillDisappear:animated];
     
-    for (id annotation in self.mapView.selectedAnnotations) {
-        [self.mapView deselectAnnotation:annotation animated:NO];
-    }
+//    for (id annotation in self.mapView.selectedAnnotations) {
+//        [self.mapView deselectAnnotation:annotation animated:NO];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,7 +99,7 @@
 // ===========  TEST ===========
 - (IBAction)addOneUserAction:(id)sender {
     SQMapAnnotation *mapAnnotation = [[SQMapAnnotation alloc] init];
-    CLLocationCoordinate2D coordinateUser = CLLocationCoordinate2DMake(0 * 0.01 + 40.018284, 0 * 0.001 + 116.345398);
+    CLLocationCoordinate2D coordinateUser = CLLocationCoordinate2DMake(40, 116);
     mapAnnotation.coordinate = coordinateUser;
     mapAnnotation.image = [UIImage imageNamed:@"imgAdd_1"];
     mapAnnotation.title = @"user1";
@@ -109,11 +109,27 @@
 }
 
 - (IBAction)addMoreUsersAction:(id)sender {
+    SQMapAnnotation *mapAnnotation1 = [[SQMapAnnotation alloc] init];
+    CLLocationCoordinate2D coordinateUser1 = CLLocationCoordinate2DMake(39, 116);
+    mapAnnotation1.coordinate = coordinateUser1;
+    mapAnnotation1.image = [UIImage imageNamed:@"imgAdd_2"];
+    mapAnnotation1.title = @"user1";
+    mapAnnotation1.user = nil;
     
+    SQMapAnnotation *mapAnnotation2 = [[SQMapAnnotation alloc] init];
+    CLLocationCoordinate2D coordinateUser2 = CLLocationCoordinate2DMake(39, 118);
+    mapAnnotation2.coordinate = coordinateUser2;
+    mapAnnotation2.image = [UIImage imageNamed:@"imgAdd_3"];
+    mapAnnotation2.title = @"user1";
+    mapAnnotation2.user = nil;
+    
+    [self.mapView addAnnotations:@[[SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation1],
+                                   [SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation2]]];
 }
 
 - (IBAction)logoutOneUserAction:(id)sender {
-    
+    SQMapAnnotationUtil *mapAnnotation = self.mapView.annotations.firstObject;
+    [self.mapView removeAnnotation:mapAnnotation];
 }
 
 - (IBAction)logoutAllUsersAction:(id)sender {
