@@ -33,6 +33,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
+    self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
     [self.view insertSubview:self.mapView atIndex:0];
     
@@ -82,7 +83,12 @@
 }
 
 - (IBAction)positionAction:(id)sender {
-    
+    MKCoordinateRegion region;
+    region.center.latitude = coordinate.latitude;
+    region.center.longitude = coordinate.longitude;
+    region.span.latitudeDelta = 0.01;
+    region.span.longitudeDelta = 0.01;
+    [self.mapView setRegion:region animated:YES];
 }
 
 #pragma mark - MKMapViewDelegate
@@ -101,7 +107,7 @@
         [((NSObject<SQMapAnnotationViewProtocol> *)view) didSelectAnnotationViewInMap:mapView];
     }
     
-    SQMapAnnotationView *mapAnnotationView = (SQMapAnnotationView *)view;
+//    SQMapAnnotationView *mapAnnotationView = (SQMapAnnotationView *)view;
     
     
     TestViewController *vc = [[TestViewController alloc] init];
@@ -147,6 +153,9 @@
     region.span.latitudeDelta = 0.01;
     region.span.longitudeDelta = 0.01;
     [self.mapView setRegion:region animated:YES];
+    
+    // 定位成功后关闭实时定位
+    [locationManager stopUpdatingLocation];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
