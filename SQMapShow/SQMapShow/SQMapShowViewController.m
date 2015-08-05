@@ -88,12 +88,7 @@
 
 // 定位
 - (IBAction)positionAction:(id)sender {
-    MKCoordinateRegion region;
-    region.center.latitude = coordinate.latitude;
-    region.center.longitude = coordinate.longitude;
-    region.span.latitudeDelta = 0.01;
-    region.span.longitudeDelta = 0.01;
-    [self.mapView setRegion:region animated:YES];
+     [locationManager startUpdatingLocation];
 }
 
 // ===========  TEST ===========
