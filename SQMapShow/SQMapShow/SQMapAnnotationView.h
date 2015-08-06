@@ -21,6 +21,9 @@ extern NSString * const SQAnnotationViewReuseID;
 
 @interface SQMapAnnotationView : MKAnnotationView <SQMapAnnotationViewProtocol>
 
+@property (strong, nonatomic) SQMapAnnotation *mapAnnotation;           /**< SQMapAnnotation */
+
+
 /**
  *  初始化AnnotationView
  *

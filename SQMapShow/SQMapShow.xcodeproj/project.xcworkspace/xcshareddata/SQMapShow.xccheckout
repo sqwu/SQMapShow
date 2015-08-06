@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>80042926-9A41-4AC9-8E8B-DE718C2D4FFA</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>SQMapShow</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>4835FD6B0C4E0AFDBB80D1164A26D13A450AD68C</key>
 		<string>https://github.com/sqwu/SQMapShow.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SQMapShow/SQMapShow.xcodeproj/project.xcworkspace</string>
+	<string>SQMapShow/SQMapShow.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>4835FD6B0C4E0AFDBB80D1164A26D13A450AD68C</key>

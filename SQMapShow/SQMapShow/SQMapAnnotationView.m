@@ -54,6 +54,7 @@ static CGFloat const SQAnnotationViewMargin = 15.0f;
 
 - (void)updateWithMapAnnotation:(SQMapAnnotation *)mapAnnotation
 {
+    self.mapAnnotation = mapAnnotation;
     self.coordinate = mapAnnotation.coordinate;
     self.backgroundImageView.image = [UIImage imageNamed:@"background"];
     self.userImageView.image = mapAnnotation.image;

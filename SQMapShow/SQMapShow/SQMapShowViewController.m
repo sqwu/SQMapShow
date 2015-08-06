@@ -42,6 +42,12 @@
     [self.view insertSubview:self.mapView atIndex:0];
     
     [self locationManagerStart];
+    
+    
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    
+    // 添加 Annotation
+    [self.mapView addAnnotations:[self annotations]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -52,12 +58,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    
-    [self.mapView removeAnnotations:self.mapView.annotations];
-    
-    // 添加 Annotation
-    [self.mapView addAnnotations:[self annotations]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -97,7 +97,7 @@
     CLLocationCoordinate2D coordinateUser = CLLocationCoordinate2DMake(40, 116);
     mapAnnotation.coordinate = coordinateUser;
     mapAnnotation.image = [UIImage imageNamed:@"imgAdd_1"];
-    mapAnnotation.title = @"user1";
+    mapAnnotation.title = @"userAdd1";
     mapAnnotation.user = nil;
     
     [self.mapView addAnnotations:@[[SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation]]];
@@ -118,14 +118,14 @@
     CLLocationCoordinate2D coordinateUser1 = CLLocationCoordinate2DMake(39, 116);
     mapAnnotation1.coordinate = coordinateUser1;
     mapAnnotation1.image = [UIImage imageNamed:@"imgAdd_2"];
-    mapAnnotation1.title = @"user1";
+    mapAnnotation1.title = @"userAdd2";
     mapAnnotation1.user = nil;
     
     SQMapAnnotation *mapAnnotation2 = [[SQMapAnnotation alloc] init];
     CLLocationCoordinate2D coordinateUser2 = CLLocationCoordinate2DMake(39, 118);
     mapAnnotation2.coordinate = coordinateUser2;
     mapAnnotation2.image = [UIImage imageNamed:@"imgAdd_3"];
-    mapAnnotation2.title = @"user1";
+    mapAnnotation2.title = @"userAdd3";
     mapAnnotation2.user = nil;
     
     [self.mapView addAnnotations:@[[SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation1],
@@ -161,7 +161,8 @@
         [((NSObject<SQMapAnnotationViewProtocol> *)view) didSelectAnnotationViewInMap:mapView];
     }
     
-//    SQMapAnnotationView *mapAnnotationView = (SQMapAnnotationView *)view;
+    SQMapAnnotationView *mapAnnotationView = (SQMapAnnotationView *)view;
+    NSLog(@"select: %@", mapAnnotationView.mapAnnotation.title);
     
     
     TestViewController *vc = [[TestViewController alloc] init];
@@ -283,15 +284,15 @@
     CLLocationCoordinate2D coordinateUser2 = CLLocationCoordinate2DMake(1 * 0.001 + 40.018284, 1 * 0.002 + 116.345398);
     mapAnnotation2.coordinate = coordinateUser2;
     mapAnnotation2.image = [UIImage imageNamed:@"photo_1"];
-    mapAnnotation1.title = @"user2";
-    mapAnnotation1.user = nil;
+    mapAnnotation2.title = @"user2";
+    mapAnnotation2.user = nil;
     
     SQMapAnnotation *mapAnnotation3 = [[SQMapAnnotation alloc] init];
     CLLocationCoordinate2D coordinateUser3 = CLLocationCoordinate2DMake(2 * 0.001 + 40.018284, 2 * 0.002 + 116.345398);
     mapAnnotation3.coordinate = coordinateUser3;
     mapAnnotation3.image = [UIImage imageNamed:@"photo_2"];
-    mapAnnotation1.title = @"user3";
-    mapAnnotation1.user = nil;
+    mapAnnotation3.title = @"user3";
+    mapAnnotation3.user = nil;
     
     
     return @[[SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation1],
