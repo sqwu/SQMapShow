@@ -21,6 +21,8 @@
 		422D62B71B70A09D00EB77A6 /* SQMapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D62B61B70A09D00EB77A6 /* SQMapAnnotationView.m */; };
 		422D62C01B70C66E00EB77A6 /* SQMapAnnotationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D62BF1B70C66E00EB77A6 /* SQMapAnnotationUtil.m */; };
 		42BD5C8B1B71ED9800EF6FF6 /* SQUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BD5C8A1B71ED9800EF6FF6 /* SQUser.m */; };
+		42FD0FD01B7349EF0045C3A5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FD0FCF1B7349EF0045C3A5 /* ViewController.m */; };
+		42FD0FD21B734A6A0045C3A5 /* SQMapShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FD0FD11B734A6A0045C3A5 /* SQMapShowViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,9 @@
 		422D62BF1B70C66E00EB77A6 /* SQMapAnnotationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQMapAnnotationUtil.m; sourceTree = "<group>"; };
 		42BD5C891B71ED9800EF6FF6 /* SQUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQUser.h; sourceTree = "<group>"; };
 		42BD5C8A1B71ED9800EF6FF6 /* SQUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQUser.m; sourceTree = "<group>"; };
+		42FD0FCE1B7349EF0045C3A5 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		42FD0FCF1B7349EF0045C3A5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		42FD0FD11B734A6A0045C3A5 /* SQMapShowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SQMapShowViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +117,14 @@
 				422D627E1B705BB300EB77A6 /* AppDelegate.m */,
 				422D62801B705BB300EB77A6 /* SQMapShowViewController.h */,
 				422D62811B705BB300EB77A6 /* SQMapShowViewController.m */,
+				42FD0FD11B734A6A0045C3A5 /* SQMapShowViewController.xib */,
 				42BD5C891B71ED9800EF6FF6 /* SQUser.h */,
 				42BD5C8A1B71ED9800EF6FF6 /* SQUser.m */,
 				422D62A21B706CFA00EB77A6 /* TestViewController.h */,
 				422D62A31B706CFA00EB77A6 /* TestViewController.m */,
 				422D62A51B706FBE00EB77A6 /* TestViewController.xib */,
+				42FD0FCE1B7349EF0045C3A5 /* ViewController.h */,
+				42FD0FCF1B7349EF0045C3A5 /* ViewController.m */,
 				422D62831B705BB300EB77A6 /* Main.storyboard */,
 				422D62861B705BB300EB77A6 /* Images.xcassets */,
 				422D62881B705BB300EB77A6 /* LaunchScreen.xib */,
@@ -241,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				422D62851B705BB300EB77A6 /* Main.storyboard in Resources */,
+				42FD0FD21B734A6A0045C3A5 /* SQMapShowViewController.xib in Resources */,
 				422D628A1B705BB300EB77A6 /* LaunchScreen.xib in Resources */,
 				422D62A61B706FBE00EB77A6 /* TestViewController.xib in Resources */,
 				422D62871B705BB300EB77A6 /* Images.xcassets in Resources */,
@@ -261,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FD0FD01B7349EF0045C3A5 /* ViewController.m in Sources */,
 				422D62C01B70C66E00EB77A6 /* SQMapAnnotationUtil.m in Sources */,
 				422D62B71B70A09D00EB77A6 /* SQMapAnnotationView.m in Sources */,
 				422D62821B705BB300EB77A6 /* SQMapShowViewController.m in Sources */,

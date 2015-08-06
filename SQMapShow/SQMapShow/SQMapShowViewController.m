@@ -11,6 +11,7 @@
 #import "SQMapAnnotation.h"
 #import "SQMapAnnotationView.h"
 #import "SQMapAnnotationUtil.h"
+#import "SQUser.h"
 
 #import "TestViewController.h"
 
@@ -277,31 +278,18 @@
 
 - (NSArray *)annotations
 {
-    SQMapAnnotation *mapAnnotation1 = [[SQMapAnnotation alloc] init];
-    CLLocationCoordinate2D coordinateUser1 = CLLocationCoordinate2DMake(0 * 0.001 + 40.018284, 0 * 0.002 + 116.345398);
-    mapAnnotation1.coordinate = coordinateUser1;
-    mapAnnotation1.image = [UIImage imageNamed:@"photo_0"];
-    mapAnnotation1.title = @"user1";
-    mapAnnotation1.user = nil;
+    NSMutableArray *mutArray = [NSMutableArray array];
+    for (int i = 0; i < self.usersArray.count; i++) {
+        SQMapAnnotation *mapAnnotation = [[SQMapAnnotation alloc] init];
+        SQUser *user = self.usersArray[i];
+        mapAnnotation.coordinate = user.coordinate;
+        mapAnnotation.image = user.userPhoto;
+        mapAnnotation.title = user.userName;
+        mapAnnotation.user = user;
+        [mutArray addObject:[SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation]];
+    }
     
-    SQMapAnnotation *mapAnnotation2 = [[SQMapAnnotation alloc] init];
-    CLLocationCoordinate2D coordinateUser2 = CLLocationCoordinate2DMake(1 * 0.001 + 40.018284, 1 * 0.002 + 116.345398);
-    mapAnnotation2.coordinate = coordinateUser2;
-    mapAnnotation2.image = [UIImage imageNamed:@"photo_1"];
-    mapAnnotation2.title = @"user2";
-    mapAnnotation2.user = nil;
-    
-    SQMapAnnotation *mapAnnotation3 = [[SQMapAnnotation alloc] init];
-    CLLocationCoordinate2D coordinateUser3 = CLLocationCoordinate2DMake(2 * 0.001 + 40.018284, 2 * 0.002 + 116.345398);
-    mapAnnotation3.coordinate = coordinateUser3;
-    mapAnnotation3.image = [UIImage imageNamed:@"photo_2"];
-    mapAnnotation3.title = @"user3";
-    mapAnnotation3.user = nil;
-    
-    
-    return @[[SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation1],
-             [SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation2],
-             [SQMapAnnotationUtil annotationWithMapAnnotation:mapAnnotation3]];
+    return mutArray;
 }
 
 @end

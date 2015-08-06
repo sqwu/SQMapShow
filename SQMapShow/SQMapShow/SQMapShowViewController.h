@@ -10,6 +10,7 @@
 
 @interface SQMapShowViewController : UIViewController
 
+@property (strong, nonatomic) NSArray *usersArray;
 
 @end
 
