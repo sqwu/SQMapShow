@@ -161,6 +161,8 @@
         [((NSObject<SQMapAnnotationViewProtocol> *)view) didSelectAnnotationViewInMap:mapView];
     }
     
+    if (![view isKindOfClass:[SQMapAnnotationView class]]) return;
+    
     SQMapAnnotationView *mapAnnotationView = (SQMapAnnotationView *)view;
     
     TestViewController *vc = [[TestViewController alloc] init];
