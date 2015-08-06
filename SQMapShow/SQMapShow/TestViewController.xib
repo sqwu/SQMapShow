@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TestViewController">
             <connections>
+                <outlet property="userNameLabel" destination="PIM-VW-bbM" id="xbR-R3-yXr"/>
+                <outlet property="userPhotoImageView" destination="32R-T3-BJf" id="CqM-3O-hHw"/>
                 <outlet property="view" destination="vlY-mB-Z3h" id="uia-ty-YMK"/>
             </connections>
         </placeholder>
@@ -15,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="710-vs-aTv">
-                    <rect key="frame" x="266" y="284.5" width="68" height="31"/>
+                    <rect key="frame" x="266" y="284" width="68" height="31"/>
                     <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="15"/>
                     <state key="normal" title="DISMISS">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -24,11 +26,29 @@
                         <action selector="dismissAction:" destination="-1" eventType="touchUpInside" id="bPv-0z-6Xx"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="32R-T3-BJf">
+                    <rect key="frame" x="250" y="45" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="6De-ZJ-2l6"/>
+                        <constraint firstAttribute="width" constant="100" id="Peh-jA-rLZ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIM-VW-bbM">
+                    <rect key="frame" x="20" y="153" width="560" height="17"/>
+                    <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="PIM-VW-bbM" firstAttribute="top" secondItem="32R-T3-BJf" secondAttribute="bottom" constant="8" id="B5R-Eg-ibY"/>
                 <constraint firstAttribute="centerY" secondItem="710-vs-aTv" secondAttribute="centerY" id="M18-Or-OaU"/>
+                <constraint firstAttribute="trailing" secondItem="PIM-VW-bbM" secondAttribute="trailing" constant="20" id="TXC-4l-jLa"/>
+                <constraint firstItem="32R-T3-BJf" firstAttribute="top" secondItem="vlY-mB-Z3h" secondAttribute="top" constant="45" id="a6S-27-LnK"/>
+                <constraint firstItem="PIM-VW-bbM" firstAttribute="leading" secondItem="vlY-mB-Z3h" secondAttribute="leading" constant="20" id="ida-0e-Lsi"/>
                 <constraint firstAttribute="centerX" secondItem="710-vs-aTv" secondAttribute="centerX" id="ir3-7A-IXY"/>
+                <constraint firstAttribute="centerX" secondItem="32R-T3-BJf" secondAttribute="centerX" id="x53-cT-nNK"/>
             </constraints>
             <point key="canvasLocation" x="403" y="395"/>
         </view>

@@ -10,4 +10,7 @@
 
 @interface TestViewController : UIViewController
 
+@property (strong, nonatomic) UIImage *userPhoto;
+@property (copy, nonatomic) NSString *userName;
+
 @end

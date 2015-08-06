@@ -10,6 +10,9 @@
 
 @interface TestViewController ()
 
+@property (strong, nonatomic) IBOutlet UIImageView *userPhotoImageView;
+@property (strong, nonatomic) IBOutlet UILabel *userNameLabel;
+
 @end
 
 @implementation TestViewController
@@ -17,6 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.userPhotoImageView.layer.cornerRadius = CGRectGetWidth(self.userPhotoImageView.frame) / 2;
+    self.userPhotoImageView.clipsToBounds = YES;
+    
+    self.userPhotoImageView.image = self.userPhoto;
+    self.userNameLabel.text = self.userName;
 }
 
 - (void)didReceiveMemoryWarning {

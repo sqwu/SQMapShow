@@ -162,10 +162,12 @@
     }
     
     SQMapAnnotationView *mapAnnotationView = (SQMapAnnotationView *)view;
-    NSLog(@"select: %@", mapAnnotationView.mapAnnotation.title);
-    
     
     TestViewController *vc = [[TestViewController alloc] init];
+    
+    vc.userPhoto = mapAnnotationView.mapAnnotation.image;
+    vc.userName = mapAnnotationView.mapAnnotation.title;
+    
     [self presentViewController:vc animated:YES completion:nil];
 }
 
