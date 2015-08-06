@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		422D627C1B705BB300EB77A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D627B1B705BB300EB77A6 /* main.m */; };
 		422D627F1B705BB300EB77A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D627E1B705BB300EB77A6 /* AppDelegate.m */; };
-		422D62821B705BB300EB77A6 /* SQMapShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D62811B705BB300EB77A6 /* SQMapShowViewController.m */; };
 		422D62851B705BB300EB77A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422D62831B705BB300EB77A6 /* Main.storyboard */; };
 		422D62871B705BB300EB77A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 422D62861B705BB300EB77A6 /* Images.xcassets */; };
 		422D628A1B705BB300EB77A6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 422D62881B705BB300EB77A6 /* LaunchScreen.xib */; };
@@ -17,12 +16,13 @@
 		422D62A01B705FCC00EB77A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 422D629F1B705FCC00EB77A6 /* MapKit.framework */; };
 		422D62A41B706CFA00EB77A6 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D62A31B706CFA00EB77A6 /* TestViewController.m */; };
 		422D62A61B706FBE00EB77A6 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 422D62A51B706FBE00EB77A6 /* TestViewController.xib */; };
-		422D62B41B70A08A00EB77A6 /* SQMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D62B31B70A08A00EB77A6 /* SQMapAnnotation.m */; };
-		422D62B71B70A09D00EB77A6 /* SQMapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D62B61B70A09D00EB77A6 /* SQMapAnnotationView.m */; };
-		422D62C01B70C66E00EB77A6 /* SQMapAnnotationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D62BF1B70C66E00EB77A6 /* SQMapAnnotationUtil.m */; };
 		42BD5C8B1B71ED9800EF6FF6 /* SQUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BD5C8A1B71ED9800EF6FF6 /* SQUser.m */; };
 		42FD0FD01B7349EF0045C3A5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FD0FCF1B7349EF0045C3A5 /* ViewController.m */; };
-		42FD0FD21B734A6A0045C3A5 /* SQMapShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FD0FD11B734A6A0045C3A5 /* SQMapShowViewController.xib */; };
+		42FD0FDD1B7350180045C3A5 /* SQMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FD0FD51B7350180045C3A5 /* SQMapAnnotation.m */; };
+		42FD0FDE1B7350180045C3A5 /* SQMapAnnotationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FD0FD71B7350180045C3A5 /* SQMapAnnotationUtil.m */; };
+		42FD0FDF1B7350180045C3A5 /* SQMapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FD0FD91B7350180045C3A5 /* SQMapAnnotationView.m */; };
+		42FD0FE01B7350180045C3A5 /* SQMapShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FD0FDB1B7350180045C3A5 /* SQMapShowViewController.m */; };
+		42FD0FE11B7350180045C3A5 /* SQMapShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FD0FDC1B7350180045C3A5 /* SQMapShowViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,6 @@
 		422D627B1B705BB300EB77A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		422D627D1B705BB300EB77A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		422D627E1B705BB300EB77A6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		422D62801B705BB300EB77A6 /* SQMapShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQMapShowViewController.h; sourceTree = "<group>"; };
-		422D62811B705BB300EB77A6 /* SQMapShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQMapShowViewController.m; sourceTree = "<group>"; };
 		422D62841B705BB300EB77A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		422D62861B705BB300EB77A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		422D62891B705BB300EB77A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -53,17 +51,19 @@
 		422D62A21B706CFA00EB77A6 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		422D62A31B706CFA00EB77A6 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		422D62A51B706FBE00EB77A6 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
-		422D62B21B70A08A00EB77A6 /* SQMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQMapAnnotation.h; sourceTree = "<group>"; };
-		422D62B31B70A08A00EB77A6 /* SQMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQMapAnnotation.m; sourceTree = "<group>"; };
-		422D62B51B70A09D00EB77A6 /* SQMapAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQMapAnnotationView.h; sourceTree = "<group>"; };
-		422D62B61B70A09D00EB77A6 /* SQMapAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQMapAnnotationView.m; sourceTree = "<group>"; };
-		422D62BE1B70C66E00EB77A6 /* SQMapAnnotationUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQMapAnnotationUtil.h; sourceTree = "<group>"; };
-		422D62BF1B70C66E00EB77A6 /* SQMapAnnotationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQMapAnnotationUtil.m; sourceTree = "<group>"; };
 		42BD5C891B71ED9800EF6FF6 /* SQUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQUser.h; sourceTree = "<group>"; };
 		42BD5C8A1B71ED9800EF6FF6 /* SQUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQUser.m; sourceTree = "<group>"; };
 		42FD0FCE1B7349EF0045C3A5 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		42FD0FCF1B7349EF0045C3A5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		42FD0FD11B734A6A0045C3A5 /* SQMapShowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SQMapShowViewController.xib; sourceTree = "<group>"; };
+		42FD0FD41B7350180045C3A5 /* SQMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQMapAnnotation.h; sourceTree = "<group>"; };
+		42FD0FD51B7350180045C3A5 /* SQMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQMapAnnotation.m; sourceTree = "<group>"; };
+		42FD0FD61B7350180045C3A5 /* SQMapAnnotationUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQMapAnnotationUtil.h; sourceTree = "<group>"; };
+		42FD0FD71B7350180045C3A5 /* SQMapAnnotationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQMapAnnotationUtil.m; sourceTree = "<group>"; };
+		42FD0FD81B7350180045C3A5 /* SQMapAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQMapAnnotationView.h; sourceTree = "<group>"; };
+		42FD0FD91B7350180045C3A5 /* SQMapAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQMapAnnotationView.m; sourceTree = "<group>"; };
+		42FD0FDA1B7350180045C3A5 /* SQMapShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQMapShowViewController.h; sourceTree = "<group>"; };
+		42FD0FDB1B7350180045C3A5 /* SQMapShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQMapShowViewController.m; sourceTree = "<group>"; };
+		42FD0FDC1B7350180045C3A5 /* SQMapShowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SQMapShowViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,17 +107,9 @@
 		422D62781B705BB300EB77A6 /* SQMapShow */ = {
 			isa = PBXGroup;
 			children = (
-				422D62BE1B70C66E00EB77A6 /* SQMapAnnotationUtil.h */,
-				422D62BF1B70C66E00EB77A6 /* SQMapAnnotationUtil.m */,
-				422D62B51B70A09D00EB77A6 /* SQMapAnnotationView.h */,
-				422D62B61B70A09D00EB77A6 /* SQMapAnnotationView.m */,
-				422D62B21B70A08A00EB77A6 /* SQMapAnnotation.h */,
-				422D62B31B70A08A00EB77A6 /* SQMapAnnotation.m */,
+				42FD0FD31B7350180045C3A5 /* Classes */,
 				422D627D1B705BB300EB77A6 /* AppDelegate.h */,
 				422D627E1B705BB300EB77A6 /* AppDelegate.m */,
-				422D62801B705BB300EB77A6 /* SQMapShowViewController.h */,
-				422D62811B705BB300EB77A6 /* SQMapShowViewController.m */,
-				42FD0FD11B734A6A0045C3A5 /* SQMapShowViewController.xib */,
 				42BD5C891B71ED9800EF6FF6 /* SQUser.h */,
 				42BD5C8A1B71ED9800EF6FF6 /* SQUser.m */,
 				422D62A21B706CFA00EB77A6 /* TestViewController.h */,
@@ -166,6 +158,22 @@
 			);
 			name = Frameworks;
 			path = SQMapShow/Frameworks;
+			sourceTree = "<group>";
+		};
+		42FD0FD31B7350180045C3A5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				42FD0FD41B7350180045C3A5 /* SQMapAnnotation.h */,
+				42FD0FD51B7350180045C3A5 /* SQMapAnnotation.m */,
+				42FD0FD61B7350180045C3A5 /* SQMapAnnotationUtil.h */,
+				42FD0FD71B7350180045C3A5 /* SQMapAnnotationUtil.m */,
+				42FD0FD81B7350180045C3A5 /* SQMapAnnotationView.h */,
+				42FD0FD91B7350180045C3A5 /* SQMapAnnotationView.m */,
+				42FD0FDA1B7350180045C3A5 /* SQMapShowViewController.h */,
+				42FD0FDB1B7350180045C3A5 /* SQMapShowViewController.m */,
+				42FD0FDC1B7350180045C3A5 /* SQMapShowViewController.xib */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,7 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				422D62851B705BB300EB77A6 /* Main.storyboard in Resources */,
-				42FD0FD21B734A6A0045C3A5 /* SQMapShowViewController.xib in Resources */,
+				42FD0FE11B7350180045C3A5 /* SQMapShowViewController.xib in Resources */,
 				422D628A1B705BB300EB77A6 /* LaunchScreen.xib in Resources */,
 				422D62A61B706FBE00EB77A6 /* TestViewController.xib in Resources */,
 				422D62871B705BB300EB77A6 /* Images.xcassets in Resources */,
@@ -270,15 +278,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FD0FDF1B7350180045C3A5 /* SQMapAnnotationView.m in Sources */,
+				42FD0FE01B7350180045C3A5 /* SQMapShowViewController.m in Sources */,
+				42FD0FDE1B7350180045C3A5 /* SQMapAnnotationUtil.m in Sources */,
 				42FD0FD01B7349EF0045C3A5 /* ViewController.m in Sources */,
-				422D62C01B70C66E00EB77A6 /* SQMapAnnotationUtil.m in Sources */,
-				422D62B71B70A09D00EB77A6 /* SQMapAnnotationView.m in Sources */,
-				422D62821B705BB300EB77A6 /* SQMapShowViewController.m in Sources */,
 				422D627F1B705BB300EB77A6 /* AppDelegate.m in Sources */,
 				422D62A41B706CFA00EB77A6 /* TestViewController.m in Sources */,
 				422D627C1B705BB300EB77A6 /* main.m in Sources */,
 				42BD5C8B1B71ED9800EF6FF6 /* SQUser.m in Sources */,
-				422D62B41B70A08A00EB77A6 /* SQMapAnnotation.m in Sources */,
+				42FD0FDD1B7350180045C3A5 /* SQMapAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
